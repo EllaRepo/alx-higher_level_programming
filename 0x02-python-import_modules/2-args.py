@@ -5,6 +5,6 @@ if __name__ == '__main__':
     if nargs == 1:
         print("0 arguments.")
     else:
-        print("{} arguments.".format(nargs-1))
+        print("{} arguments:".format(nargs-1))
         for item in sys.argv[1:]:
-            print("{} : {}".format(sys.argv.index(item), item))
+            print("{}: {}".format(sys.argv.index(item), item))
