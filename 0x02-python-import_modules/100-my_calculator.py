@@ -20,3 +20,4 @@ if __name__ == '__main__':
         print("{} {} {} = {}".format(a, b, c, div(a, c)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
