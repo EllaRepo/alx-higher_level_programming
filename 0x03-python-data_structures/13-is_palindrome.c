@@ -3,25 +3,6 @@
 #include "lists.h"
 
 /**
- * add_nodeint - adds a new node at the beginning of a list_t list
- * @head: point to the pointer to the head of the list
- * @n: integer
- *
- * Return: the address of the new element, or NULL if it failed
- */
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-	listint_t *node_ptr = malloc(sizeof(listint_t));
-
-	if (!node_ptr)
-		return (NULL);
-	node_ptr->next = *head;
-	node_ptr->n = n;
-	*head = node_ptr;
-
-	return (*head);
-}
-/**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: point to the head of listint_t list
  *
@@ -30,21 +11,36 @@ listint_t *add_nodeint(listint_t **head, const int n)
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *rev_list = NULL, *h, *rh;
+	listint_t *slow = *head, *fast = *head;
+	listint_t *prev = NULL, *next = NULL;
+	listint_t *first_half = NULL, *second_half = NULL;
 
-	if (*head == NULL || !(*head)->next ||
-	((*head)->n == (*head)->next->n && !(*head)->next->next))
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	for (h = *head; h; h = h->next)
-		add_nodeint(&rev_list, h->n);
-	for (h = *head, rh = rev_list; h; h = h->next, rh = rh->next)
+
+	while (fast != NULL && fast->next != NULL)
 	{
-		if (h->n != rh->n)
-		{
-			free_listint(rev_list);
-			return (0);
-		}
+		fast = fast->next->next;
+		next = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = next;
 	}
-	free_listint(rev_list);
+
+	if (fast != NULL)
+		second_half = slow->next;
+	else
+		second_half = slow;
+
+	first_half = prev;
+
+	while (first_half != NULL && second_half != NULL)
+	{
+		if (first_half->n != second_half->n)
+			return (0);
+		first_half = first_half->next;
+		second_half = second_half->next;
+	}
+
 	return (1);
 }
