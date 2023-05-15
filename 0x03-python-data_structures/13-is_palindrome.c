@@ -33,7 +33,7 @@ int is_palindrome(listint_t **head)
 	listint_t *rev_list = NULL, *h, *rh;
 
 	if (*head == NULL || !(*head)->next ||
-	((*head)->n == (*head)->n && !(*head)->next->next))
+	((*head)->n == (*head)->next->n && !(*head)->next->next))
 		return (1);
 	for (h = *head; h; h = h->next)
 		add_nodeint(&rev_list, h->n);
