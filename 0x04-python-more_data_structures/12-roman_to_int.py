@@ -5,12 +5,14 @@ def roman_to_int(roman_string):
     roman_nume = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100,
                   'D': 500, 'M': 1000}
     number = 0
-    flag = False
+    prev = ''
     for i in roman_string:
         number += roman_nume[i]
-        if flag and i != 'I':
+        if prev == 'I' and i in 'VX':
             number -= 2
-            flag = False
-        if i == 'I':
-            flag = True
+        if prev == 'C' and i in 'DM':
+            number -= 200
+        if prev == 'X' and i in 'CL':
+            number -= 20
+        prev = i
     return number
