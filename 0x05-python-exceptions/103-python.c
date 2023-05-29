@@ -22,7 +22,7 @@ void print_python_float(PyObject *p)
 	}
 	dvalue = ((PyFloatObject *)(p))->ob_fval;
 	fstr = PyOS_double_to_string(dvalue, 'r', 0, Py_DTSF_ADD_DOT_0, Py_DTST_FINITE);
-	printf("  vale: %s\n", fstr);
+	printf("  value: %s\n", fstr);
 	setbuf(stdout, NULL);
 }
 /**
