@@ -44,9 +44,13 @@ class Square:
     def position(self, value):
         """Set private instance attribute position
         """
-        if not isinstance(value, tuple) or len(value) != 2:
+        if not isinstance(value, tuple):
             raise TypeError('position must be a tuple of 2 positive integers')
-        if not (isinstance(value[0], int) or isinstance(value[1], int)):
+        if len(value) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if not isinstance(value[0], int):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if not isinstance(value[1], int):
             raise TypeError('position must be a tuple of 2 positive integers')
         elif value[0] < 0 or value[1] < 0:
             raise TypeError('position must be a tuple of 2 positive integers')
@@ -61,18 +65,14 @@ class Square:
     def my_print(self):
         """Prints in stdout the square with the character #
         """
-        if not self.__size:
+        if not self.size:
             print()
         else:
-            if not self.__position:
-                pass
-            else:
-                for i in range(self.__position[1]):
-                    print()
-            for i in range(self.__size):
-                if self.__position:
-                    for k in range(self.__position[0]):
-                        print("_", end='')
-                for j in range(self.__size):
+            for i in range(self.position[1]):
+                print()
+            for i in range(self.size):
+                for k in range(self.position[0]):
+                    print("_", end='')
+                for j in range(self.size):
                     print("#", end='')
                 print()
