@@ -20,7 +20,8 @@ class Square:
                     square_str += " "
                 for j in range(self.size):
                     square_str += "#"
-                square_str += "\n"
+                if i is not (self.size - 1):
+                    square_str += "\n"
         return square_str
 
     def __init__(self, size=0, position=(0, 0)):
