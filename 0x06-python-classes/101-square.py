@@ -6,22 +6,12 @@
 class Square:
     """Class Square that defines a square.
     """
-    def __init__(self, size=0, position=(0, 0)):
-        """Initialize method that stores value for private attribute size.
-
-        Args:
-            size (int): Size of the square.
-            position (int tuple): position of the square
-        """
-        self.size = size
-        self.position = position
-
     def __str__(self):
         """Prints in stdout the square with the character #
         """
         square_str = ""
         if not self.size:
-            square_str += "\n"
+            return square_str
         else:
             for i in range(self.position[1]):
                 square_str += "\n"
@@ -32,6 +22,16 @@ class Square:
                     square_str += "#"
                 square_str += "\n"
         return square_str
+
+    def __init__(self, size=0, position=(0, 0)):
+        """Initialize method that stores value for private attribute size.
+
+        Args:
+            size (int): Size of the square.
+            position (int tuple): position of the square
+        """
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
