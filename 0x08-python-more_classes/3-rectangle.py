@@ -15,10 +15,8 @@ class Rectangle:
             return rect_str
         else:
             for i in range(self.height):
-                for j in range(self.width):
-                    rect_str += "#"
-                rect_str += "\n"
-        return rect_str
+               rect_str += ("#" * self.width) + "\n"
+        return rect_str[:-1]
 
     def __init__(self, width=0, height=0):
         """Initialize method that stores value for private attribute width
