@@ -8,7 +8,8 @@ class Rectangle:
 
     """
     def __init__(self, width=0, height=0):
-        """Initialize method that stores value for private attribute size.
+        """Initialize method that stores value for private attribute width
+            and height.
 
         Args:
             width (int): width of the square.
@@ -38,7 +39,7 @@ class Rectangle:
     def height(self):
         """Retrieve private instance attribute height
         """
-        return self.height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -49,4 +50,4 @@ class Rectangle:
         elif value < 0:
             raise ValueError('height must be >= 0')
         else:
-            self.__width = value
+            self.__height = value
