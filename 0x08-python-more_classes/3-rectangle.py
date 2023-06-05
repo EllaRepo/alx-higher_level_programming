@@ -15,7 +15,7 @@ class Rectangle:
             return rect_str
         else:
             for i in range(self.height):
-               rect_str += ("#" * self.width) + "\n"
+                rect_str += ("#" * self.width) + "\n"
         return rect_str[:-1]
 
     def __init__(self, width=0, height=0):
