@@ -6,9 +6,9 @@
 
 
 class LockedClass:
-    __slots__ = ["first_name"]
-
-    def __init__(self):
-        """Initializes the class
-        """
-        pass
+    def __setattr__(self, key, value):
+        if hasattr(self, key) or key != 'first_name':
+            c_name = self.__class__.__name__
+            msg = "object has no attribute"
+            raise AttributeError("\'{}\' {} \'{}\'".format(c_name, msg, key))
+        super().__setattr__(key, value)
