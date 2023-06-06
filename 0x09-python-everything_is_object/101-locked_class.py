@@ -7,7 +7,12 @@
 
 class LockedClass:
     def __setattr__(self, key, value):
-        if hasattr(self, key) or key != 'first_name':
+        """called when user tries to created dynamic attribute
+            Args:
+                key (str): name of the attribute
+                value: value of the attribute
+        """
+        if key != 'first_name':
             c_name = self.__class__.__name__
             msg = "object has no attribute"
             raise AttributeError("\'{}\' {} \'{}\'".format(c_name, msg, key))
