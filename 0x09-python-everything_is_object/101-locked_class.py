@@ -6,14 +6,12 @@
 
 
 class LockedClass:
-    def __setattr__(self, key, value):
-        """called when user tries to created dynamic attribute
-            Args:
-                key (str): name of the attribute
-                value: value of the attribute
+    """Class LockedClass with no class or object attribute.
+
+    """
+    __slots__ = ['first_name']
+
+    def __init__(self) -> None:
+        """Initializes class instance
         """
-        if key != 'first_name':
-            c_name = self.__class__.__name__
-            msg = "object has no attribute"
-            raise AttributeError("\'{}\' {} \'{}\'".format(c_name, msg, key))
-        super().__setattr__(key, value)
+        pass
