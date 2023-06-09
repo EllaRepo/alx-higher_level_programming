@@ -1,0 +1,60 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Importing ``text_indentation`` from the ``5-text_indentation`` module:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text_indentation("Hello ALX. Cohort: 12. When is the graguation? Bye")
+    Hello ALX.
+    <BLANKLINE>
+    Cohort:
+    <BLANKLINE>
+    12.
+    <BLANKLINE>
+    When is the graguation?
+    <BLANKLINE>
+    Bye
+    >>> text_indentation("234")
+    234
+    >>> text_indentation("     abc      ")
+    abc
+    >>> text_indentation("         ")
+
+    >>> text_indentation(".:?")
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    >>> text_indentation("  \n    ")
+    <BLANKLINE>
+    >>> text_indentation("    Hi     .    How you doing    ?")
+    Hi.
+    <BLANKLINE>
+    How you doing?
+    <BLANKLINE>
+    >>> text_indentation()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: text must be a string
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: text must be a string
+    >>> text_indentation({"hello. alx"})
+    Traceback (most recent call last):
+    	      ...
+    TypeError: text must be a string
+    >>> text_indentation(["hello. alx"])
+    Traceback (most recent call last):
+    	      ...
+    TypeError: text must be a string
