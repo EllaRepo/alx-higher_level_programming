@@ -1,0 +1,42 @@
+The ``7-base_geometry`` module
+======================
+
+Using ``BaseGeometry``
+-------------------
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("dob", 123)
+    >>> bg.integer_validator("dob", 1)
+    >>> bg.integer_validator("dob", -10)
+    Traceback (most recent call last):
+        ...
+    ValueError: dob must be greater than 0
+    >>> bg.integer_validator("dob", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: dob must be greater than 0
+    >>> bg.integer_validator("dob", 10.0)
+    Traceback (most recent call last):
+        ...
+    TypeError: dob must be an integer
+    >>> bg.integer_validator("dob", '10')
+    Traceback (most recent call last):
+        ...
+    TypeError: dob must be an integer
+    >>> bg.integer_validator("dob", [10])
+    Traceback (most recent call last):
+        ...
+    TypeError: dob must be an integer
+    >>> bg.integer_validator("dob", (10, ))
+    Traceback (most recent call last):
+        ...
+    TypeError: dob must be an integer
+    >>> bg.integer_validator("dob")
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
