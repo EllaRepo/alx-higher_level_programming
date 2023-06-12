@@ -7,12 +7,13 @@ Using ``BaseGeometry``
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-     >>> bg = BaseGeometry()
+    >>> bg = BaseGeometry()
     >>> bg.area()
     Traceback (most recent call last):
     	      ...
     Exception: area() is not implemented
 
+    >>> bg = BaseGeometry()
     >>> bg.area(324)
     Traceback (most recent call last):
     	      ...
