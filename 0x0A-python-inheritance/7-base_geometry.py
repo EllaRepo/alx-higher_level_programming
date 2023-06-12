@@ -3,7 +3,7 @@
 """
 
 
-class BaseGeometry():
+class BaseGeometry:
     """A class BaseGeometry.
     """
 
