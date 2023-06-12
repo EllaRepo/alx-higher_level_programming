@@ -43,7 +43,7 @@ Using ``BaseGeometry``
     ValueError: dob must be greater than 0
 
     >>> bg = BaseGeometry()
-    >>> bg.integer_validator("dob", 10.2)
+    >>> bg.integer_validator("dob", False)
     Traceback (most recent call last):
         ...
     TypeError: dob must be an integer
