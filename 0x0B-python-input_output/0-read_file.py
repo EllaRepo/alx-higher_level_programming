@@ -15,4 +15,4 @@ def read_file(filename=""):
         while text != '':
             print(text, end='')
             text = f.readline()
-    print()
+        print()
