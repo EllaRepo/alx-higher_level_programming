@@ -9,10 +9,8 @@ def read_file(filename=""):
 
     Args:
         filename: the name of the file to read
+    Returns: None
     """
     with open(filename, encoding="utf-8") as f:
-        text = f.readline()
-        while text != '':
-            print(text, end='')
-            text = f.readline()
-        print()
+        text = f.read()
+        print(text, end='')
