@@ -27,8 +27,10 @@ if __name__ == "__main__":
                 if len(list_line) == 9:
                     s_list[list_line[-2]] += 1
                     tot_sz += int(list_line[-1].strip("\n"))
+                else:
+                    raise Exception('wrong format')
             except Exception:
-                raise Exception
+                pass
             line_cnt += 1
     except KeyboardInterrupt:
         print_status(s_list, tot_sz)
