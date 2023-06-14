@@ -24,8 +24,9 @@ if __name__ == "__main__":
 
             try:
                 list_line = [x for x in line.split(" ") if x.strip()]
-                s_list[list_line[-2]] += 1
-                tot_sz += int(list_line[-1].strip("\n"))
+                if len(list_line) == 6:
+                    s_list[list_line[-2]] += 1
+                    tot_sz += int(list_line[-1].strip("\n"))
             except Exception:
                 raise Exception
             line_cnt += 1
