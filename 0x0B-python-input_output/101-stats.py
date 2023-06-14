@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
             try:
                 list_line = [x for x in line.split(" ") if x.strip()]
-                if len(list_line) == 6:
+                if len(list_line) == 9:
                     s_list[list_line[-2]] += 1
                     tot_sz += int(list_line[-1].strip("\n"))
             except Exception:
