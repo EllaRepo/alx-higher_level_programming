@@ -21,7 +21,6 @@ if __name__ == "__main__":
         for line in sys.stdin:
             if line_cnt % 10 == 0 and line_cnt != 0:
                 print_status(s_list, tot_sz)
-                line_cnt = 0
 
             try:
                 list_line = [x for x in line.split(" ") if x.strip()]
@@ -33,3 +32,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print_status(s_list, tot_sz)
         raise
+    print_status(s_list, tot_sz)
