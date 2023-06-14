@@ -26,7 +26,7 @@ if __name__ == "__main__":
                 list_line = [x for x in line.split(" ") if x.strip()]
                 s_list[list_line[-2]] += 1
                 tot_sz += int(list_line[-1].strip("\n"))
-            except:
+            except Exception:
                 pass
             line_cnt += 1
     except KeyboardInterrupt:
