@@ -27,7 +27,6 @@ if __name__ == "__main__":
                 if list_line[-2] in s_list:
                     s_list[list_line[-2]] += 1
                 tot_sz += int(list_line[-1].strip("\n"))
-                print(int(list_line[-1].strip("\n")))
             except Exception:
                 pass
             line_cnt += 1
