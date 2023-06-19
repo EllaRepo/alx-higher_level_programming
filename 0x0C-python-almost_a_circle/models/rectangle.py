@@ -3,6 +3,7 @@
 """
 from models.base import Base
 
+
 class Rectangle(Base):
     """Class Rectangle inherits from Base
     """
@@ -105,10 +106,10 @@ class Rectangle(Base):
         """Prints in stdout the Rectangle with the character #
         """
         for i in range(self.y):
-                print()
+            print()
         for i in range(self.height):
             for k in range(self.x):
-                    print(" ", end='')
+                print(" ", end='')
             for j in range(self.width):
                 print("#", end='')
             print()
@@ -126,3 +127,13 @@ class Rectangle(Base):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle
+        """
+        attrs = ['id', 'width', 'height', 'x', 'y']
+        dic = {}
+
+        for key in attrs:
+            dic[key] = getattr(self, key)
+        return dic
