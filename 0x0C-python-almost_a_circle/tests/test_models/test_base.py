@@ -58,19 +58,20 @@ class TestBase(unittest.TestCase):
         """
         b1 = Base('1234')
         self.assertEqual(b1.id, '1234')
-    
+
     def test_id_multiple_arg(self):
         """Test multiple arg
         """
         with self.assertRaises(TypeError):
             b = Base(1, 3)
-    
+
     def test_access_private_attribute(self):
         """Test accessing private class attribute
         """
         b = Base()
         with self.assertRaises(AttributeError):
             b.__nb_objects
+
 
 if __name__ == '__main__':
     unittest.main()
