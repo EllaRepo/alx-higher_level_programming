@@ -513,12 +513,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 8)
 
-    def test_rectangle_load_from_file_1(self):
-        """ Test load JSON file
-        """
-        load_file = Rectangle.load_from_file()
-        self.assertEqual(load_file, [])
-
     def test_rectangle_load_from_file_2(self):
         """Test load JSON file
         """
@@ -531,3 +525,18 @@ class TestRectangle(unittest.TestCase):
 
         for i in range(len(l_input)):
             self.assertEqual(l_input[i].__str__(), l_output[i].__str__())
+
+    def test_rectangle_save_to_file(self):
+        """Test save to JSON file
+        """
+        Rectangle.save_to_file(None)
+        load_file = Rectangle.load_from_file()
+        self.assertEqual(load_file, [])
+
+    def test_rectangle_save_to_file_2(self):
+        """Test save to JSON file
+        """
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        Rectangle.save_to_file([])
+        load_file = Rectangle.load_from_file()
+        self.assertEqual(load_file, [])

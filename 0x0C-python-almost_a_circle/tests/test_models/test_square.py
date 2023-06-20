@@ -438,12 +438,6 @@ class TestSquare(unittest.TestCase):
             print(json_dictionary)
             self.assertEqual(str_out.getvalue(), ret.replace("'", "\""))
 
-    def test_square_load_from_file_1(self):
-        """ Test load JSON file
-        """
-        load_file = Square.load_from_file()
-        self.assertEqual(load_file, load_file)
-
     def test_square_json_file(self):
         """ Test Dictionary to JSON string
         """
@@ -500,7 +494,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 4)
         self.assertEqual(s.y, 6)
 
-    def test_square_from_file_2(self):
+    def test_square_load_from_file_2(self):
         """ Test load JSON file
         """
         s1 = Square(15)
@@ -512,3 +506,18 @@ class TestSquare(unittest.TestCase):
 
         for i in range(len(linput)):
             self.assertEqual(linput[i].__str__(), loutput[i].__str__())
+
+    def test_square_save_to_file_1(self):
+        """Test save to JSON file
+        """
+        Square.save_to_file(None)
+        load_file = Square.load_from_file()
+        self.assertEqual(load_file, [])
+
+    def test_square_save_to_file_2(self):
+        """Test save to JSON file
+        """
+        Square.save_to_file([Square(2)])
+        Square.save_to_file([])
+        load_file = Square.load_from_file()
+        self.assertEqual(load_file, [])
