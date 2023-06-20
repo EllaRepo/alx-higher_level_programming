@@ -38,7 +38,7 @@ class Base:
             list_objs: is a list of instances who inherits of Base
         """
         list_dic = []
-        if list_objs is None:
+        if list_objs is None or len(list_objs) == 0:
             pass
         else:
             for i in range(len(list_objs)):

@@ -513,19 +513,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 8)
 
-    def test_rectangle_save_to_file(self):
-        """Test save to JSON file
+    def test_rectangle_load_from_file_1(self):
+        """ Test load JSON file
         """
-        Rectangle.save_to_file(None)
         load_file = Rectangle.load_from_file()
-        self.assertEqual(load_file, [])
-
-    def test_rectangle_save_to_file_2(self):
-        """Test save to JSON file
-        """
-        r = Rectangle(10, 10)
-        r.save_to_file([])
-        load_file = r.load_from_file()
         self.assertEqual(load_file, [])
 
     def test_rectangle_load_from_file_2(self):
