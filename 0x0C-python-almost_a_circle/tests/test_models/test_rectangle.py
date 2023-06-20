@@ -89,44 +89,38 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_invalid_width_value(self):
         """Test new rectangle with invalid width value
         """
-        r = Rectangle(1, 2)
         with self.assertRaises(ValueError):
-            r.width = 0
+            r = Rectangle(0, 2)
 
     def test_rectangle_invalid_width_value1(self):
         """Test new rectangle with invalid width value
         """
-        r = Rectangle(1, 2)
         with self.assertRaises(ValueError):
-            r.width = -10
+            r = Rectangle(-1, 2)
 
     def test_rectangle_invalid_height_value(self):
         """Test new rectangle with invalid height value
         """
-        r = Rectangle(1, 2)
         with self.assertRaises(ValueError):
-            r.height = 0
+            r = Rectangle(1, 0)
 
     def test_rectangle_invalid_height_value1(self):
         """Test new rectangle with invalid height value
         """
-        r = Rectangle(1, 2)
         with self.assertRaises(ValueError):
-            r.height = -10
+            r = Rectangle(1, -2)
 
     def test_rectangle_invalid_x_value(self):
         """Test new rectangle with invalid x value
         """
-        r = Rectangle(1, 2)
         with self.assertRaises(ValueError):
-            r.x = -10
+            r = Rectangle(1, 2, -3)
 
     def test_rectangle_invalid_y_value(self):
         """Test new rectangle with invalid y value
         """
-        r = Rectangle(1, 2)
         with self.assertRaises(ValueError):
-            r.y = -10
+            r = Rectangle(1, 2, 3, -4)
 
     def test_access_private_attribute_width(self):
         """Test accessing private class attribute
@@ -518,6 +512,21 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 10)
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 8)
+
+    def test_rectangle_save_to_file(self):
+        """Test save to JSON file
+        """
+        Rectangle.save_to_file(None)
+        load_file = Rectangle.load_from_file()
+        self.assertEqual(load_file, [])
+
+    def test_rectangle_save_to_file_2(self):
+        """Test save to JSON file
+        """
+        r = Rectangle(10, 10)
+        r.save_to_file([])
+        load_file = r.load_from_file()
+        self.assertEqual(load_file, [])
 
     def test_rectangle_load_from_file_2(self):
         """Test load JSON file

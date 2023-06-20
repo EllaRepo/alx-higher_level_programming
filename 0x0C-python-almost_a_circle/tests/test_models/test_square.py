@@ -104,23 +104,20 @@ class TestSquare(unittest.TestCase):
     def test_square_invalid_size_value(self):
         """Test new square with invalid size value
         """
-        s = Square(1, 2)
         with self.assertRaises(ValueError):
-            s.size = 0
+            s = Square(0)
 
     def test_square_invalid_x_value(self):
         """Test new square with invalid x value
         """
-        s = Square(1, 2)
         with self.assertRaises(ValueError):
-            s.x = -10
+            s = Square(1, -2)
 
     def test_square_invalid_y_value(self):
         """Test new square with invalid y value
         """
-        s = Square(1, 2)
         with self.assertRaises(ValueError):
-            s.y = -10
+            s = Square(1, 2, -3)
 
     def test_access_private_attribute_width(self):
         """Test accessing private class attribute
@@ -173,7 +170,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.area(), 16)
 
     def test_square_display_1(self):
-        """Test Square display 
+        """Test Square display
         """
         s = Square(2)
         dis = "##\n##\n"
@@ -182,7 +179,7 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(std_out.getvalue(), dis)
 
     def test_square_display_2(self):
-        """Test square display 
+        """Test square display
         """
         s = Square(1)
         dis = "#\n"
@@ -191,7 +188,7 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(std_out.getvalue(), dis)
 
     def test_square_display_3(self):
-        """Test square display 
+        """Test square display
         """
         s = Square(5)
         dis = "#####\n#####\n#####\n#####\n#####\n"
@@ -212,7 +209,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.__str__(), ret)
 
     def test_square_str_2(self):
-        """Test square __str__ 
+        """Test square __str__
         """
         s1 = Square(2)
         s2 = Square(8, 14, 3, 5)
@@ -222,7 +219,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.__str__(), ret2)
 
     def test_square_str_3(self):
-        """Test square __str__ return value 
+        """Test square __str__ return value
         """
         s = Square(8, 3, 5, 7)
         ret = "[Square] (7) 3/5 - 8"
@@ -239,7 +236,7 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(std_out.getvalue(), ret)
 
     def test_square_str_4(self):
-        """Test square __str__ return value 
+        """Test square __str__ return value
         """
         s = Square(1)
         ret = "[Square] (1) 0/0 - 1"
@@ -370,7 +367,7 @@ class TestSquare(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(s)
             self.assertEqual(str_out.getvalue(), ret)
-        
+
         dic = {'id': 45, 'x': 78}
         s.update(**dic)
         ret = "[Square] (45) 78/8 - 5\n"
@@ -441,6 +438,20 @@ class TestSquare(unittest.TestCase):
             print(json_dictionary)
             self.assertEqual(str_out.getvalue(), ret.replace("'", "\""))
 
+    def test_square_save_to_file(self):
+        """Test save to JSON file
+        """
+        Square.save_to_file(None)
+        load_file = Square.load_from_file()
+        self.assertEqual(load_file, [])
+
+    def test_square_save_to_file_2(self):
+        """Test save to JSON file
+        """
+        Square.save_to_file([])
+        load_file = Square.load_from_file()
+        self.assertEqual(load_file, [])
+
     def test_square_file_load_2(self):
         """ Test load JSON file
         """
@@ -477,7 +488,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(res, res2)
 
     def test_square_create(self):
-        """ Test create method 
+        """ Test create method
         """
         dic = {'id': 7}
         s = Square.create(**dic)
