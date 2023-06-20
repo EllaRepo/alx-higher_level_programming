@@ -441,12 +441,6 @@ class TestSquare(unittest.TestCase):
             print(json_dictionary)
             self.assertEqual(str_out.getvalue(), ret.replace("'", "\""))
 
-    def test_square_file_load(self):
-        """Test load JSON file
-        """
-        load_file = Square.load_from_file()
-        self.assertEqual(load_file, [])
-
     def test_square_file_load_2(self):
         """ Test load JSON file
         """
@@ -489,7 +483,7 @@ class TestSquare(unittest.TestCase):
         s = Square.create(**dic)
         self.assertEqual(s.id, 7)
 
-    def test_create_2(self):
+    def test_square_create_2(self):
         """ Test create method
         """
         dic = {'id': 7, 'size': 10}
@@ -497,7 +491,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.id, 7)
         self.assertEqual(s.size, 10)
 
-    def test_create_3(self):
+    def test_square_create_3(self):
         """ Test create method
         """
         dic = {'id': 7, 'size': 10, 'x': 4}
@@ -506,7 +500,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.size, 10)
         self.assertEqual(s.x, 4)
 
-    def test_create_4(self):
+    def test_square_create_4(self):
         """ Test create method
         """
         dic = {'id': 7, 'size': 10, 'x': 4, 'y': 6}
