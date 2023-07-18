@@ -1,0 +1,4 @@
+-- Script that removes all records with a score <= 5 from the second_table table
+-- Delete all records from the second_table table where score <= 5
+DELETE FROM second_table
+WHERE score <= 5;
