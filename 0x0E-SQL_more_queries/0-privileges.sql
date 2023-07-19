@@ -1,4 +1,5 @@
---script that lists all privileges of the MySQL users
---Query to list all privileges of the MySQL users
+--Script that lists all privileges of the MySQL users
+--Query to list all privileges of MySQL users
 SHOW GRANTS FOR 'user_0d_1'@'localhost';
+--Query to list all privileges of MySQL users
 SHOW GRANTS FOR 'user_0d_2'@'localhost';
