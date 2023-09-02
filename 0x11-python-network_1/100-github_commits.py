@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Python script that list the latest 10 commits of Github repository 
+""" Python script that list the latest 10 commits of Github repository
 """
 from requests import get, auth
 import sys
@@ -15,5 +15,5 @@ if __name__ == "__main__":
         for i in range(0, 10):
             print("{}: {}".format(json_o[i].get('sha'), json_o[i].get('commit')
                                   .get('author').get('name')))
-    except:
+    except Exception:
         pass
