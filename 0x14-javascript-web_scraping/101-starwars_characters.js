@@ -8,7 +8,7 @@ request(url, (error, response, body) => {
   if (error == null) {
     if (movieId < 4) {
       movieId += 3;
-    } else {
+    } else if (movieId < 7) {
       movieId -= 3;
     }
     const results = JSON.parse(body).results;
@@ -18,8 +18,8 @@ request(url, (error, response, body) => {
         break;
       }
     }
-    for (let i = 0; i < characters.length; i++) {
-      request(characters[i], function (error, response, body) {
+    for (let j = 0; j < characters.length; j++) {
+      request(characters[j], function (error, response, body) {
         if (error == null) {
           console.log(JSON.parse(body).name);
         }
