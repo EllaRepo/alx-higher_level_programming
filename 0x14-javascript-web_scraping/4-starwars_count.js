@@ -9,6 +9,6 @@ request(url, (error, response, body) => {
       const characters = film.characters;
       return characters.includes('https://swapi-api.alx-tools.com/api/people/18/');
     });
-    console.log(wedgeAntillesFilms);
+    console.log(wedgeAntillesFilms.length);
   }
 });
